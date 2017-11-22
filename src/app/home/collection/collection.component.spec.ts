@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CollectionComponent } from './collection.component';
 import { COLLECTION_RESPONSE } from '../../../tests/collection.fixture';
+import { Collection } from '../../core/collection/collection.interface';
 
 describe('CollectionComponent', () => {
   let component: CollectionComponent;
@@ -23,5 +24,16 @@ describe('CollectionComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('deleteCollection', () => {
+    it('should emit delete event', () => {
+      let emittedCollection: Collection;
+      component.onDelete.subscribe((collection: Collection) => {
+        emittedCollection = collection;
+      });
+      component.deleteCollection();
+      expect(emittedCollection).toEqual(COLLECTION_RESPONSE[0]);
+    });
   });
 });

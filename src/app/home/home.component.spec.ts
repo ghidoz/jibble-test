@@ -49,5 +49,13 @@ describe('HomeComponent', () => {
     });
   });
 
+  describe('deleteCollection', () => {
+    it('should remove the collection', () => {
+      component.collections = COLLECTION_RESPONSE;
+      component.deleteCollection(COLLECTION_RESPONSE[1]);
+      expect(component.collections.indexOf(COLLECTION_RESPONSE[1])).toBe(-1);
+    });
+  });
+
 
 });

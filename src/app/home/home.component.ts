@@ -20,5 +20,10 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  deleteCollection(collection: Collection) {
+    const index = this.collections.indexOf(collection);
+    this.collections.splice(index, 1);
+  }
+
 
 }
