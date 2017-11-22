@@ -11,8 +11,8 @@ export class AlbumService {
 
   constructor(private http: HttpClient) { }
 
-  query(): Observable<Album> {
-    return this.http.get<Album>(this.apiUrl);
+  query(): Observable<Album[]> {
+    return this.http.get<Album[]>(this.apiUrl);
   }
 
 
