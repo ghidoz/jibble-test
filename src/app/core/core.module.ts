@@ -3,6 +3,7 @@ import { PostService } from './post/post.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './user/user.service';
 import { AlbumService } from './album/album.service';
+import { CollectionService } from './collection/collection.service';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ export class CoreModule {
       providers: [
         PostService,
         UserService,
-        AlbumService
+        AlbumService,
+        CollectionService
       ]
     };
   }
