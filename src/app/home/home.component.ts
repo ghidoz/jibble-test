@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CollectionService } from '../core/collection/collection.service';
+import { Collection } from '../core/collection/collection.interface';
 
 @Component({
   selector: 'jb-home',
@@ -7,12 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() {
+  public collections: Collection[];
+
+  constructor(private collectionService: CollectionService) {
   }
 
   ngOnInit() {
+    this.collectionService.query().subscribe((collections: Collection[]) => {
+      this.collections = collections;
+    });
   }
-
 
 
 }

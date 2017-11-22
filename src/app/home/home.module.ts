@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HomeRoutingModule, routedComponents } from './home-routing.module';
 import { CommonModule } from '@angular/common';
+import { CollectionComponent } from './collection/collection.component';
 
 @NgModule({
   imports: [
@@ -9,7 +10,8 @@ import { CommonModule } from '@angular/common';
   ],
   exports: [],
   declarations: [
-    routedComponents
+    routedComponents,
+    CollectionComponent
   ]
 })
 export class HomeModule {
