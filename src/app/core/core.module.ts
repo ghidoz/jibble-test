@@ -2,6 +2,7 @@ import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core
 import { PostService } from './post/post.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './user/user.service';
+import { AlbumService } from './album/album.service';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ export class CoreModule {
       ngModule: CoreModule,
       providers: [
         PostService,
-        UserService
+        UserService,
+        AlbumService
       ]
     };
   }
