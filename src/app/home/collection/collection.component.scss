@@ -1,11 +1,23 @@
 :host {
-  border: 1px solid #ccc;
   display: block;
-  padding: 10px 20px;
   margin: 20px;
   flex-grow: 1;
+  &:hover {
+    .close {
+      display: block;
+    }
+  }
 }
 
 .actions {
   text-align: right;
+}
+
+.close {
+  display: none;
+  cursor: pointer;
+}
+
+.form-control {
+  width: 300px;
 }
