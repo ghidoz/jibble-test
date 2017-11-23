@@ -1,4 +1,11 @@
-<p><strong>Post:</strong> {{collection.post.title}}</p>
+<p>
+  <strong>Post:</strong>
+  <span [hidden]="editMode">{{collection.post.title}} <button (click)="enableEditMode()">Edit</button></span>
+  <span [hidden]="!editMode">
+    <input type="text" name="title" [(ngModel)]="collection.post.title"/>
+    <button type="submit" (click)="updatePostTitle()">Save</button>
+  </span>
+</p>
 <p><strong>Album:</strong> {{collection.album.title}}</p>
 <p><strong>User:</strong> {{collection.user.name}}</p>
 

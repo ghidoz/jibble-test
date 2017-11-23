@@ -9,10 +9,15 @@ export class PostService {
 
   private apiUrl = environment.baseApiUrl + 'posts';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   query(): Observable<Post[]> {
     return this.http.get<Post[]>(this.apiUrl);
+  }
+
+  update(post: Post): Observable<Post> {
+    return this.http.put<Post>(this.apiUrl + '/' + post.id, post);
   }
 
 }

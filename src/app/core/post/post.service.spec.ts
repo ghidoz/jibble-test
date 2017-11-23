@@ -12,6 +12,10 @@ export class MockHttpClient {
   get(): Observable<Post[]> {
     return Observable.of(POST_RESPONSE);
   }
+
+  put(post: Post): Observable<Post> {
+    return Observable.of(POST_RESPONSE[0]);
+  }
 }
 
 describe('PostService', () => {
@@ -47,6 +51,22 @@ describe('PostService', () => {
     });
     it('should return response', () => {
       expect(response).toEqual(POST_RESPONSE);
+    });
+  });
+
+  describe('update', () => {
+    let response: Post;
+    beforeEach(() => {
+      spyOn(http, 'put').and.callThrough();
+      service.update(POST_RESPONSE[0]).subscribe((resp: Post) => {
+        response = resp;
+      });
+    });
+    it('should call http.put', () => {
+      expect(http.put).toHaveBeenCalledWith(environment.baseApiUrl + 'posts/1', POST_RESPONSE[0]);
+    });
+    it('should return response', () => {
+      expect(response).toEqual(POST_RESPONSE[0]);
     });
   });
 
