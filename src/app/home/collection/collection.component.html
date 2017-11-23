@@ -9,7 +9,7 @@
       <span [hidden]="!editMode">
         <div class="btn-group" role="group">
           <input type="text" name="title" class="form-control" [(ngModel)]="collection.post.title" />
-          <button type="submit" class="btn btn-success btn-sm" (click)="updatePostTitle()">Save</button>
+          <button class="btn btn-success btn-sm" (click)="updatePostTitle()" [disabled]="!collection.post.title">Save</button>
         </div>
     </span>
     </p>
